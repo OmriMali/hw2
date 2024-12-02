@@ -5,6 +5,7 @@
 
 // SECTION A: Recursive Palindrome Check
 int is_palindrome_recursive(char* str, int start, int end) {
+	// TODO: Implement the logic for recursive palindrome check
 	while (!((str[start] >= 65 && str[start] <= 90) || (str[start] >= 97 && str[start] <= 122) || (str[start] >= 48 && str[start] <= 57)) && start<=end)
 		start++;
 	while (!((str[end] >= 65 && str[end] <= 90) || (str[end] >= 97 && str[end] <= 122) || (str[start] >= 48 && str[start] <= 57)) && start<=end)
@@ -22,6 +23,7 @@ int is_palindrome_recursive(char* str, int start, int end) {
 
 // SECTION B: Iterative Palindrome Check
 int is_palindrome_iterative(char* str) {
+	// TODO: Implement the logic for iterative palindrome check
 	int start = 0, end=strlen(str)-1;
 	while (start <= end) {
 		while (!((str[start] >= 65 && str[start] <= 90) || (str[start] >= 97 && str[start] <= 122) || (str[start] >= 48 && str[start] <= 57)) && start <= end)
