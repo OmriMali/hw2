@@ -9,7 +9,7 @@ int is_palindrome_recursive(char* str, int start, int end) {
 		start++;
 	while (!((str[end] >= 65 && str[end] <= 90) || (str[end] >= 97 && str[end] <= 122) || (str[start] >= 48 && str[start] <= 57)) && start<=end)
 		end--;
-	if (start >= end)
+	if (start == end)
 		return 1;
 	if (start == (end - 1))
 		return (tolower(str[start])== tolower(str[end]));
@@ -22,22 +22,25 @@ int is_palindrome_recursive(char* str, int start, int end) {
 
 // SECTION B: Iterative Palindrome Check
 int is_palindrome_iterative(char* str) {
-	int start = 0, end=strlen(str);
+	int start = 0, end=strlen(str)-1;
 	while (start <= end) {
 		while (!((str[start] >= 65 && str[start] <= 90) || (str[start] >= 97 && str[start] <= 122) || (str[start] >= 48 && str[start] <= 57)) && start <= end)
 			start++;
 		while (!((str[end] >= 65 && str[end] <= 90) || (str[end] >= 97 && str[end] <= 122) || (str[start] >= 48 && str[start] <= 57)) && start <= end)
 			end--;
-		if (start >= end)
+		if (start == end)
 			return 1;
 		if (start == (end - 1))
 			return (tolower(str[start]) == tolower(str[end]));
 		if (tolower(str[start]) != tolower(str[end]))
 			return 0;
-		start++;
-		end--;
-
+		else {
+			start++;
+			end--;
+		}
 	}
+	if (start >= end)
+		return 1;
 	return 0; // Placeholder return value
 }
 
