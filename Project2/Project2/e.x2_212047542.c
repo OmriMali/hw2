@@ -6,17 +6,20 @@
 void generate_subsequences(char* str, char* current, int index) {
 	// TODO: Implement the recursive logic for generating subsequences
 	char new_current[100];
-	int lengh_str = strlen(current);
+	int lengh_current = strlen(current);
 	if (index == strlen(str)) {
 		current[index] = '\0';
 		printf("%s\n", current);
 		return;
 	}
 	strcpy(new_current, current);
-	current[lengh_str] = str[index];
-	current[lengh_str + 1] = '\0';
-	generate_subsequences(str, current, index + 1);
+	new_current[lengh_current] = str[index];
+	new_current[lengh_current + 1] = '\0';
 	generate_subsequences(str, new_current, index + 1);
+	if (str[index] != str[index - 1]) 
+		generate_subsequences(str, current, index + 1);
+	else if(index<strlen(str)-2)
+		generate_subsequences(str, current, index + 2);
 }
 		
 
