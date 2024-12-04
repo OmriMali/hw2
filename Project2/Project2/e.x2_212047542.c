@@ -16,10 +16,8 @@ void generate_subsequences(char* str, char* current, int index) {
 	new_current[lengh_current] = str[index];
 	new_current[lengh_current + 1] = '\0';
 	generate_subsequences(str, new_current, index + 1);
-	if (str[index] != str[index - 1]) 
-		generate_subsequences(str, current, index + 1);
-	else if(index<strlen(str)-2)
-		generate_subsequences(str, current, index + 2);
+	generate_subsequences(str, current, index + 1);
+	
 }
 		
 
